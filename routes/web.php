@@ -27,6 +27,10 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
 
+    Route::get('/estoma', function () {
+        return view('informacoes/estoma');
+    })->middleware(['auth', 'verified'])->name('estoma');
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->middleware(['auth', 'verified'])->name('dashboard');
@@ -105,20 +109,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/artigo5', function () {
         return view('dicas/artigos/artigo5');
     })->middleware(['auth', 'verified'])->name('artigo5');
-    
+
     Route::get('/estoma', function () {
         return view('informacoes/estoma');
     })->middleware(['auth', 'verified'])->name('estoma');
-  
+
     Route::get('/informacoes', function () {
         return view('informacoes/informacoes');
     })->middleware(['auth', 'verified'])->name('informacoes');
-  
+
     Route::get('/relacionamento',
-    [RelacionamentoController::class, 'index'])
-    ->name('relacionamento');
+        [RelacionamentoController::class, 'index'])
+        ->name('relacionamento');
     Route::post('/matricula/search',
-    [MatriculaController::class, 'search'])->name('matricula.search');
+        [MatriculaController::class, 'search'])->name('matricula.search');
     Route::resource('matricula', MatriculaController::class);
 
 
@@ -166,35 +170,35 @@ Route::middleware('auth')->group(function () {
 
     //carrega uma listagem do banco
     Route::get('/clinica',
-    [ClinicaController::class, 'index'])->name('clinica.index');
+        [ClinicaController::class, 'index'])->name('clinica.index');
 
-//chama o formulário do clinica
-Route::get('/clinica/create',
-    [ClinicaController::class, 'create'])->name('clinica.create');
+    //chama o formulário do clinica
+    Route::get('/clinica/create',
+        [ClinicaController::class, 'create'])->name('clinica.create');
 
-//realiza a ação de salvar do formulário
-Route::post('/clinica',
-    [ClinicaController::class, 'store'])->name('clinica.store');
+    //realiza a ação de salvar do formulário
+    Route::post('/clinica',
+        [ClinicaController::class, 'store'])->name('clinica.store');
 
-//chama o formulário para edição
-Route::get('/clinica/edit/{id}',
-    [ClinicaController::class, 'edit'])->name('clinica.edit');
+    //chama o formulário para edição
+    Route::get('/clinica/edit/{id}',
+        [ClinicaController::class, 'edit'])->name('clinica.edit');
 
-//realiza a ação de atualizar os dados do formulário
-Route::put('/clinica/update/{id}',
-    [ClinicaController::class, 'update'])->name('clinica.update');
+    //realiza a ação de atualizar os dados do formulário
+    Route::put('/clinica/update/{id}',
+        [ClinicaController::class, 'update'])->name('clinica.update');
 
-//chama o método para excluir o registro
-Route::get('/clinica/destroy/{id}',
-    [ClinicaController::class, 'destroy'])->name('clinica.destroy');
+    //chama o método para excluir o registro
+    Route::get('/clinica/destroy/{id}',
+        [ClinicaController::class, 'destroy'])->name('clinica.destroy');
 
-//chama o método para serch para pesquisar e filtrar o registro da listagem
-Route::post('/clinica/search',
-    [ClinicaController::class, 'search'])->name('clinica.search');
+    //chama o método para serch para pesquisar e filtrar o registro da listagem
+    Route::post('/clinica/search',
+        [ClinicaController::class, 'search'])->name('clinica.search');
 
-//relatorio
-Route::get('/clinica/report/',
-    [ClinicaController::class, 'report'])->name('clinica.report');
+    //relatorio
+    Route::get('/clinica/report/',
+        [ClinicaController::class, 'report'])->name('clinica.report');
 
 
 

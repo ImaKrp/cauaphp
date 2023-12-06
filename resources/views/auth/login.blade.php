@@ -6,7 +6,8 @@
         @csrf
 
         <div style="align-items: center; text-align:center; background-color: white">
-            <img style="margin: 0 auto; align-self: center; width: 6em" src="../../imagens/gota-sangue.png" alt="imagem">
+            <img style="margin: 0 auto; align-self: center; width: 6em" src="../../imagens/gota-sangue.png"
+                alt="imagem">
             <br>
             <h3 style="text-align: center; font-weight: bold; margin-bottom: 10; align-self: center">Entrar com o e-mail
             </h3>
@@ -17,19 +18,18 @@
 
         <!-- Email Address -->
         <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <x-input-label for="email" :value="__('Email')" style="color: black" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
+                autofocus autocomplete="username" style="color: black" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Senha')" />
+            <x-input-label for="password" :value="__('Senha')" style="color: black" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
+                autocomplete="current-password" style="color: black" />
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
@@ -43,10 +43,10 @@
             <br>
 
             @if (Route::has('register'))
-                <a style="color: black; text-decoration: underline; font-size: 14px, margin-bottom: 20px"
-                    href="{{ route('register') }}">
-                    {{ __('Não tem uma conta? Cadastre-se') }}
-                </a>
+            <a style="color: black; text-decoration: underline; font-size: 14px; margin-bottom: 20px"
+                href="{{ route('register') }}">
+                {{ __('Não tem uma conta? Cadastre-se') }}
+            </a>
             @endif
         </div>
     </form>

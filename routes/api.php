@@ -12,6 +12,11 @@ Route::controller(RegisterController::class)->group(function(){
     Route::post('login', 'login');
 });
 
+Route::get('/estoma', function () {
+    return view('informacoes/estoma');
+})->middleware(['auth', 'verified'])->name('estoma');
+
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
